@@ -35,7 +35,6 @@ if (document.fonts && document.fonts.ready) {
 function initShowroom(){
   const track = document.getElementById('track');
   const items = gsap.utils.toArray('.item');
-  const counter = document.getElementById('counter-cur');
 
   if(window.innerWidth <= 860){ return; } // mobile: vertical, no pin
 
@@ -50,11 +49,7 @@ function initShowroom(){
       end: () => `+=${getScrollAmount()}`,
       scrub: 1,
       pin: true,
-      invalidateOnRefresh: true,
-      onUpdate: self=>{
-        const idx = Math.min(items.length-1, Math.round(self.progress * (items.length-1)));
-        counter.textContent = String(idx+1).padStart(2,'0');
-      }
+      invalidateOnRefresh: true
     }
   });
 

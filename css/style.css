@@ -143,6 +143,13 @@ section{ position: relative; }
   font-size: .68rem;
   letter-spacing: .01em;
   color: var(--gold);
+  background: transparent;
+  transition: color .25s ease, background .25s ease, border-color .25s ease;
+}
+.tools > div:hover .mark{
+  color: var(--ink);
+  background: var(--gold);
+  border-color: var(--gold);
 }
 .tools .label{
   font-size: .66rem;
@@ -166,12 +173,6 @@ section{ position: relative; }
   font-family: var(--serif);
   font-weight:450;
   font-size: clamp(1.6rem,3vw,2.2rem);
-}
-.counter{
-  font-size:.78rem;
-  letter-spacing:.1em;
-  color: var(--gold);
-  font-variant-numeric: tabular-nums;
 }
 .showroom-pin{
   height: 100vh;
@@ -304,12 +305,3 @@ section{ position: relative; }
   transition: opacity .3s;
 }
 .closing a.mail:hover{ opacity:.6; }
-.closing .links{
-  margin-top: 36px;
-  display:flex;
-  gap: 26px;
-  font-size:.75rem;
-  letter-spacing:.08em;
-}
-.closing .links a{ color: var(--beige); opacity:.6; }
-.closing .links a:hover{ opacity:1; }
