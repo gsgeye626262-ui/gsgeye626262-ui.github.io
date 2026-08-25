@@ -15,8 +15,9 @@
 @media (max-width: 860px), (hover: none) and (pointer: coarse){
   .about{ padding: 9vh 6vw; }
   .about-grid{ grid-template-columns: 1fr; gap: 6vh; }
+  .about h2, .about p{ text-align:center; }
   .about p{ max-width: none; }
-  .tools{ gap: 20px; margin-top: 30px; }
+  .tools{ gap: 20px; margin-top: 30px; justify-content:center; }
   .showroom-head{ padding: 8vh 6vw 3vh; }
   .showroom-pin{ height:auto; overflow:visible; }
   .showroom-track{
