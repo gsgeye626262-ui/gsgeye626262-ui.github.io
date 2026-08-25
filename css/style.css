@@ -23,6 +23,7 @@ section{ position: relative; }
 /* ---------- 01 intro ---------- */
 .intro{
   height:100vh;
+  height:100dvh;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -176,6 +177,7 @@ section{ position: relative; }
 }
 .showroom-pin{
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 .showroom-track{
@@ -276,6 +278,7 @@ section{ position: relative; }
 /* ---------- 04 closing ---------- */
 .closing{
   height:100vh;
+  height:100dvh;
   display:flex;
   flex-direction:column;
   align-items:center;

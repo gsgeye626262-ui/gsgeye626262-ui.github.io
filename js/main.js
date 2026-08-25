@@ -17,7 +17,8 @@ function fitLiveEmbeds() {
     const h = Number(wrap.dataset.embedHeight);
     iframe.style.width = w + 'px';
     iframe.style.height = h + 'px';
-    const scale = wrap.clientWidth / w;
+    // cover (not just width-fit) so the embed fills the container with no gap
+    const scale = Math.max(wrap.clientWidth / w, wrap.clientHeight / h);
     iframe.style.transform = `scale(${scale})`;
   });
 }
@@ -32,11 +33,15 @@ if (document.fonts && document.fonts.ready) {
 }
 
 
-function initShowroom(){
+// Horizontal pin-scroll only for non-touch, wide viewports (matches media.css).
+// Touch devices always get the vertical layout, even if wide (e.g. iPad landscape),
+// since scroll-jacked pin+scrub feels janky with touch. gsap.matchMedia() re-runs
+// this automatically on resize/orientation change, so the mode never gets stuck.
+const mm = gsap.matchMedia();
+
+mm.add('(min-width: 861px) and (hover: hover) and (pointer: fine)', () => {
   const track = document.getElementById('track');
   const items = gsap.utils.toArray('.item');
-
-  if(window.innerWidth <= 860){ return; } // mobile: vertical, no pin
 
   const getScrollAmount = () => track.scrollWidth - window.innerWidth;
 
@@ -66,6 +71,6 @@ function initShowroom(){
       }
     });
   });
-}
-initShowroom();
+});
+
 window.addEventListener('resize', ()=>{ ScrollTrigger.refresh(); fitLiveEmbeds(); });
