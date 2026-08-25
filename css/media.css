@@ -27,6 +27,12 @@
   }
   .item:first-child{ margin-left:0; }
   .item-visual{ max-height: 46vh; }
+  .item-info p{
+    display:block;
+    -webkit-line-clamp:unset;
+    overflow:visible;
+    min-height:auto;
+  }
   .item-info .meta .disclaimer{
     margin-left:0;
     text-align:left;
